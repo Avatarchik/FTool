@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,13 +19,6 @@ namespace FTools
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
-
         public static string MD5(string text)
         {
             UTF8Encoding utf8Encoding = new UTF8Encoding();
@@ -39,18 +32,15 @@ namespace FTools
             }
             return text2.PadLeft(32, '0');
         }
-        
 
         private void flatButton1_Click(object sender, EventArgs e)
         {
 
 
-            openFileDialog1.Filter = "DLL (*.dll)|*.dll" +
-"|All files (*.*)|*.*";
+            openFileDialog1.Filter = "DLL (*.dll)|*.dll" + "|All files (*.*)|*.*";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                openFileDialog2.Filter = "DEX (*.dex)|*.dex" +
-"|All files (*.*)|*.*";
+                openFileDialog2.Filter = "DEX (*.dex)|*.dex" + "|All files (*.*)|*.*";
                 if (openFileDialog2.ShowDialog() == DialogResult.OK)
                 {
 
@@ -61,8 +51,7 @@ namespace FTools
 
         private void flatButton2_Click(object sender, EventArgs e)
         {
-            openFileDialog1.Filter = "DLL (*.dll)|*.dll" +
-"|All files (*.*)|*.*";
+            openFileDialog1.Filter = "DLL (*.dll)|*.dll" + "|All files (*.*)|*.*";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 using (FileStream fileStream = new FileStream(openFileDialog1.FileName, FileMode.Open, FileAccess.Write))
@@ -75,14 +64,12 @@ namespace FTools
                 }
             }
         }
-        string one = "";
+
         private void flatTextBox2_DragDrop(object sender, DragEventArgs e)
         {
             string[] test = (string[])e.Data.GetData(DataFormats.FileDrop,false);
-            foreach (string tttt in test)
-                //MessageBox.Show(File.ReadAllBytes(tttt).Length.ToString());
-                flatTextBox2.Text = File.ReadAllBytes(tttt).Length.ToString();
-
+            foreach (string txt in test)
+            flatTextBox2.Text = File.ReadAllBytes(txt).Length.ToString();
         }
 
         private void flatTextBox2_DragEnter(object sender, DragEventArgs e)
