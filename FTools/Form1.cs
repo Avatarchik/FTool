@@ -60,7 +60,7 @@ namespace FTools
                     fileStream.Position = fileStream.Length;
                     byte[] array = new byte[String2Int(flatButton3.Text)];
                     fileStream.Write(array, 0, array.Length);
-                    MessageBox.Show(String2Int(flatButton3.Text)+ " bytes added");
+                    MessageBox.Show($"{String2Int(flatButton3.Text)}  Bytes Added");
                 }
             }
         }
